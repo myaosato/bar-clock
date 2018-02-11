@@ -1,9 +1,8 @@
-(defpackage bar-clock
-  (:use :cl)
-  (:export :bar-clock))
-(in-package :bar-clock)
+(uiop/package:define-package :bar-clock/src/bar-clock (:nicknames) (:use :cl)
+                             (:shadow) (:export :bar-clock) (:intern))
+(in-package :bar-clock/src/bar-clock)
+;;don't edit above
 
-;; blah blah blah.
 (defun get-datetime (&optional (universal-time (get-universal-time)))
   (multiple-value-bind (second minute hour date month year day daylight-p zone)
       (decode-universal-time universal-time)
@@ -21,7 +20,7 @@
 (defun make-bar (value max-value &key (char "*") (max 24))
   (if (> value max-value) (setf value max-value))
   (let ((num (truncate (* (/ value max-value) max))))
-    (format nil "~V@{~A~:*~}~*~V@{~A~:*~}~A~2A / ~A" num char (- max num) " " value max-value)))
+    (format nil "~V@{~A~:*~}~*~V@{~A~:*~}~A~2,,,'0A / ~A" num char (- max num) " " value max-value)))
 
 (defun leap-year-p (year)
   (and (zerop (mod year 4))

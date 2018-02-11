@@ -5,12 +5,11 @@ exec ros -Q -- $0 "$@"
 |#
 (progn ;;init forms
   (ros:ensure-asdf)
-  (ql:quickload '(:bar-clock) :silent t)
-  )
+  (ql:quickload '(:bar-clock) :silent t))
 
-(defpackage :ros.script.bar-clock.3727292744
+(defpackage :ros.script.bar-clock.3727305435
   (:use :cl))
-(in-package :ros.script.bar-clock.3727292744)
+(in-package :ros.script.bar-clock.3727305435)
 
 (defun main (&rest argv)
   (declare (ignorable argv))
