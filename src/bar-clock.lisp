@@ -1,5 +1,6 @@
-(uiop/package:define-package :bar-clock/src/bar-clock (:nicknames) (:use :cl)
-                             (:shadow) (:export :bar-clock) (:intern))
+(uiop/package:define-package :bar-clock/src/bar-clock (:nicknames :bar-clock)
+                             (:use :cl) (:shadow) (:export :bar-clock)
+                             (:intern))
 (in-package :bar-clock/src/bar-clock)
 ;;don't edit above
 
